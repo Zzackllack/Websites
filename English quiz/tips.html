@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Tips</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #007BFF;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: 'Lato', sans-serif;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .tip-container {
+            display: none;
+            max-width: 600px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li::before {
+            content: "•";
+            color: #007BFF;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        @keyframes fadeIn {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+        }
+        
+        .tip-container {
+        animation-name: fadeIn;
+        animation-duration: 2s;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Englische Mengenangaben</h1>
+
+<button onclick="showNextTip()">Nächster Tipp</button>
+
+<div id="tip1" class="tip-container">
+    <h2>Tipps für 'some' und 'any'</h2>
+    <p><strong>some:</strong> Etwas, einige/ein paar</p>
+    <p><strong>Verwendung von some:</strong> normale Aussagesätze, Bitten und Fragen, bei denen man ein Ja erwartet</p>
+    <p><strong>any:</strong> Etwas, einige/ein paar (kann auch kein bzw. keine oder irgendwelche heißen)</p>
+    <p><strong>Verwendung von any:</strong> Verneinungen und Fragen</p>
+</div>
+
+<div id="tip2" class="tip-container">
+    <h3>Beispiele:</h3>
+    <ul>
+        <li>Normaler Aussagesatz: There are some oranges in the kitchen.</li>
+        <li>Bitte: Can I have some coffee, please?</li>
+        <li>Frage, bei der man ein Ja erwartet: Would you like some coffee?</li>
+        <li>Verneinung: There aren't any oranges in the kitchen.</li>
+        <li>Frage: Are there any oranges in the kitchen?</li>
+    </ul>
+</div>
+
+<div id="tip3" class="tip-container">
+    <h2>Tipps für 'much', 'many' und 'lots of/a lot of'</h2>
+    <p><strong>much, many, lots of/a lot of:</strong> Viel, viele</p>
+    <p><strong>Verwendung von 'many':</strong> Zählbare Substantive</p>
+    <p><strong>Verwendung von 'much':</strong> Nicht zählbare Substantive</p>
+    <p><strong>Verwendung von 'lots of/a lot of':</strong> Sowohl bei zählbaren als auch bei nicht zählbaren Substantiven</p>
+</div>
+
+<div id="tip4" class="tip-container">
+    <h3>Zusätzlich zu beachten:</h3>
+    <p><strong>Verwendung von many:</strong> normale Aussagesätze, Verneinungen und Fragen</p>
+    <p><strong>Verwendung von much:</strong> Verneinungen und Fragen</p>
+    <p><strong>Verwendung von a lot of/lots of:</strong> normale Aussagesätze</p>
+</div>
+
+<div id="tip5" class="tip-container">
+    <h3>Beispiele:</h3>
+    <ul>
+        <li>Normaler Aussagesatz: In this park, there are a lot of/lots of/many trees.</li>
+        <li>Frage: Are there many trees in the park?</li>
+        <li>Verneinung: No, there aren't many trees in the park.</li>
+        <li>Frage: How much time do you have left to complete the assignment?</li>
+        <li>Verneinung: I don't have much interest in that particular subject.</li>
+    </ul>
+</div>
+
+
+
+<script>
+    let currentTip = 1;
+    const totalTips = 5;
+
+    function showNextTip() {
+        if (currentTip <= totalTips) {
+            document.getElementById('tip' + currentTip).style.display = 'block';
+            currentTip++;
+        }
+
+        if (currentTip > totalTips) {
+            // Hide the button when all tips are shown
+            document.querySelector('button').style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
