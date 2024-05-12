@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Start</title>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <style>
+        @keyframes buttonHover {
+            0% {background-color: #3498db;}
+            50% {background-color: #2980b9;}
+            100% {background-color: #3498db;}
+        }
+        @keyframes glow {
+            0% {box-shadow: 0 0 5px #3498db, 0 0 10px #3498db, 0 0 15px #3498db, 0 0 20px #3498db;}
+            50% {box-shadow: 0 0 10px #3498db, 0 0 20px #3498db, 0 0 30px #3498db, 0 0 40px #3498db;}
+            100% {box-shadow: 0 0 5px #3498db, 0 0 10px #3498db, 0 0 15px #3498db, 0 0 20px #3498db;}
+        }
+        body {
+            font-family: 'Comfortaa', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ecf0f1;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            transition: opacity 1s ease-out;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        a {
+            display: inline-block;
+            margin: 1em;
+            padding: 1em;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+            animation: glow 2s infinite;
+        }
+        #progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: #3498db;
+            transition: width 2s ease-out;
+        }
+        #theme-switcher {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #333 url('loader.gif') no-repeat center center;
+            background-size: cover;
+            display: none;
+        }
+    </style>
+    <script>
+        var isDarkMode = false;
+        function showLoader() {
+            document.getElementById('loader').style.display = 'block';
+        }
+        function switchTheme() {
+            isDarkMode = !isDarkMode;
+            document.body.style.backgroundColor = isDarkMode ? '#333' : '#ecf0f1';
+            document.body.style.color = isDarkMode ? '#fff' : '#333';
+            document.getElementById('theme-switcher').textContent = isDarkMode ? '🌞' : '🌜';
+        }
+    </script>
+</head>
+<body>
+    <div id="progress"></div>
+    <div id="loader"></div>
+    <div>
+        <h1>Willkommen auf meiner/unseren Webseite!</h1>
+        <a href=quiz.html>Englisch Quiz</a>
+        <a href=Nikolas/html/index.html>Informatik Projekt Cédric und Nikolas</a>
+        <a href=IFrame.html>Hier gibt es jetzt was zu sehen, nämlich Iframe Experimente</a>
+    </div>
+    <div id="theme-switcher" onclick="switchTheme()">🌜</div>
+</body>
+</html>
