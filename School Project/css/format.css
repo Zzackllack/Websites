@@ -1,0 +1,53 @@
+
+	div#fix { display: flex; background-color: #212121;}
+	
+	div#body {background-color: black;color: white;}
+
+	div#header {background-color: #212121; color: white; width: 252px;}
+
+	div#content {padding-left: 8%; padding-right: 8%;color: white; 
+		font-family: 'Rockwell', Times, serif;
+		 width: 55%; margin-left: auto; margin-right: auto; padding-bottom: 5%; padding-top: 3%;
+		 margin-top: 7%; 
+		 background-color:#212121; border-radius: 50px; border: 2px solid white;}
+	
+	 #clipart {padding-left: 10px;}
+	
+	 div#navi {font-family: Georgia, 'Rockwell', Times, serif; background-color:#212121;
+		width: 70%; text-align:center; padding-top: 1.5%;}
+	
+	 #witzeb {border-radius: 20px; width: 80%; box-shadow: 0px 0px 15px 10px rgb(89, 89, 92);}
+	 
+	div#footer {color: white;text-align: center;padding-top: 100px;} 
+	
+	#verlinkung {padding-left: 4%;text-decoration:none}
+
+	#loginh {padding-left: 0%; color: whitesmoke;font-size: 15px;}
+
+	div#logind {padding-top: 1.5%;}
+
+	div#Ichkanndasallesnichtmehr {background-color: 212121; width: 107px; margin-left: auto; margin-right: auto;
+				 color: #ffffff;}
+
+	#impressumistdumm {border-radius: 30px; box-shadow: 0px 0px 15px 10px rgb(89, 89, 92);}
+
+
+
+
+
+
+
+
+	div#fenster { margin-right: auto; margin-left: auto; background-color: #212121; width: 300px; height: 420px;border-radius: 20px;padding-top: 20px; margin-top: 50px; box-shadow: 0px 0px 15px 15px rgb(89, 89, 92);}
+
+#name  {margin-left: 65px;background-color: #212121; border-radius: 8px;border: 2px solid black; color: white; height: 30px;border: white solid 1px; margin-bottom: 20px;}
+#bild {margin-left: 100px;}
+#passwort {margin-left: 65px;background-color: #212121; border-radius: 8px;border: 2px solid black; color: white; height: 30px;border: white solid 1px;margin-bottom: 20px;}
+#email {margin-left: 65px;background-color: #212121; border-radius: 8px;border: 2px solid black; color: white; height: 30px;border: white solid 1px;}
+#Alter {margin-left: 65px;background-color: #212121; border-radius: 8px;border: 2px solid black; color: white; height: 30px;border: white solid 1px;}
+#ja {color: white;padding-left: 72px;}
+#text2 {color: white; padding-left: 100px;font-size: 20px;}
+#loginb {color: white;background-color: #212121; box-shadow: 0px 0px 15px 2px rgb(89, 89, 92); border-radius: 5px;margin-left: 105px; width: 100px; height: 50px;}
+
+	
+	

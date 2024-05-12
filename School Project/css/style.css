@@ -1,0 +1,24 @@
+div#wrapper {background-color: #212121; padding-bottom: 50%;}
+
+div#header {background-color: #c51e1e;}
+
+div#fenster { margin-right: auto; margin-left: auto; background-color: #212121; width: 300px; height: 420px;border-radius: 20px;padding-top: 20px; margin-top: 50px; box-shadow: 0px 0px 15px 15px rgb(89, 89, 92);}
+#Login {padding-left: 885px; color: #ffffff;}
+#name  {margin-left: 65px;background-color: #212121; border-radius: 8px;border: 2px solid black; color: white; height: 30px;border: white solid 1px; margin-bottom: 20px;}
+#bild {margin-left: 100px;}
+#passwort {margin-left: 65px;background-color: #212121; border-radius: 8px;border: 2px solid black; color: white; height: 30px;border: white solid 1px;margin-bottom: 20px;}
+#email {margin-left: 65px;background-color: #212121; border-radius: 8px;border: 2px solid black; color: white; height: 30px;border: white solid 1px;}
+#Alter {margin-left: 65px;background-color: #212121; border-radius: 8px;border: 2px solid black; color: white; height: 30px;border: white solid 1px;}
+#ja {color: white;padding-left: 72px;}
+#text2 {color: white; padding-left: 100px;font-size: 20px;}
+#loginb {color: white;background-color: #212121; box-shadow: 0px 0px 15px 2px rgb(89, 89, 92); border-radius: 5px;margin-left: 105px; width: 100px; height: 50px;}
+
+
+
+
+div#fix { display: flex; background-color: #a36767;}
+div#navi {font-family: Georgia, 'Times New Roman', Times, serif;background-color: #3a1313;
+    margin-top: auto;margin-bottom: auto;margin-left: auto;margin-right: auto; width: 100%;}
+    #verlinkung {padding-right: 3%; margin-left: 5%;}
+
+    #loginh {padding-left: 90%; color: whitesmoke;font-size: 15px;}
