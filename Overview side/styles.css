@@ -93,7 +93,8 @@ p {
 .social-item {
   display: flex;
   align-items: center;
-  width: 100%;
+  justify-content: start;
+  width: 100%; /* Vollbreite innerhalb des Containers */
   margin: 10px 0;
 }
 
@@ -115,10 +116,20 @@ p {
 }
 
 .username {
-  transition: color 0.3s ease;
-  font-size: 18px;
-  font-weight: 500;
+    display: inline-block;  /* Erlaubt die Transformation */
+    transition: transform 0.3s ease, color 0.3s ease; /* Weiche Übergänge für Transform und Farbe */
+    cursor: pointer;  /* Zeigt an, dass der Text interaktiv ist */
+    margin: 5px 0;  /* Fügt vertikalen Abstand hinzu */
 }
+
+.username:hover {
+    transform: translateY(-5px);  /* Bewegt den Text 5px nach oben */
+    text-shadow:
+    0 0 15px currentColor,  /* Erste Schicht des Glows */
+    0 0 30px currentColor,  /* Zweite Schicht, breiterer Glow */
+    0 0 45px currentColor;  /* Dritte Schicht, noch breiterer Glow */
+}
+
 
 .social-item a.username:hover {
   color: var(--red); /* Hover effect for text */
@@ -212,4 +223,14 @@ footer {
     float: right;
     font-size: 28px;
     cursor: pointer;
+}
+
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);  /* Leicht transparenter weißer Hintergrund */
+    border-radius: 15px;  /* Abgerundete Ecken */
+    padding: 10px 20px;  /* Innenabstand */
+    margin: 10px 0;  /* Außenabstand */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Subtiler Schatten für mehr Tiefe */
+    backdrop-filter: blur(10px);  /* Unschärfe-Effekt für den Glas-Look */
+    border: 1px solid rgba(255, 255, 255, 0.25); /* Leicht sichtbare Grenze */
 }
