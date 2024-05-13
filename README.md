@@ -9,6 +9,7 @@ This repository contains various projects and tests related to web development, 
 - **School Project:** The first project related to school assignments.
 - **Test:** Repository for testing out new features.
 - **index.html:** The main HTML file for the web project.
+- **Overview:** A side that provides a full overview of all my links.
 
 ## Technologies Used
 - HTML
