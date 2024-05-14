@@ -10,6 +10,7 @@ This repository contains various projects and tests related to web development, 
 - **Test:** Repository for testing out new features.
 - **index.html:** The main HTML file for the web project.
 - **Overview:** A side that provides a full overview of all my links.
+- **Chillicord Minecraft Server** A website that presents my own minecraft server
 
 ## Technologies Used
 - HTML
