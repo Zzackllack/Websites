@@ -5,13 +5,18 @@ from urllib.parse import urljoin
 import logging
 from tqdm import tqdm
 import urllib.request
+import re
 
 def create_directory(directory):
     if not os.path.exists(directory):
         os.makedirs(directory)
 
+def sanitize_filename(filename):
+    # Entferne ungültige Zeichen aus dem Dateinamen
+    return re.sub(r'[^a-zA-Z0-9_\-.]', '_', filename)[:255]
+
 def download_file(url, directory, logger):
-    local_filename = url.split('/')[-1]
+    local_filename = sanitize_filename(url.split('/')[-1])
     full_path = os.path.join(directory, local_filename)
     
     response = requests.get(url, stream=True)
