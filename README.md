@@ -11,6 +11,7 @@ This repository contains various projects and tests related to web development, 
 - **index.html:** The main HTML file for the web project.
 - **Overview:** A side that provides a full overview of all my links.
 - **Chillicord Minecraft Server** A website that presents my own minecraft server
+- **Website-scanner** a Python tool to scan a webpage for types of media files
 
 ## Technologies Used
 - HTML
