@@ -15,6 +15,10 @@ def sanitize_filename(filename):
     # Entferne ungültige Zeichen aus dem Dateinamen
     return re.sub(r'[^a-zA-Z0-9_\-.]', '_', filename)[:255]
 
+def is_valid_url(url):
+    # Überprüft, ob die URL ein gültiges HTTP(S)-Schema hat
+    return url.startswith('http://') or url.startswith('https://')
+
 def download_file(url, directory, logger):
     local_filename = sanitize_filename(url.split('/')[-1])
     full_path = os.path.join(directory, local_filename)
@@ -48,33 +52,38 @@ def extract_media_from_url(url):
         img_url = img_tag.get('src')
         if img_url:
             img_url = urljoin(url, img_url)
-            media_files['images'].append(img_url)
+            if is_valid_url(img_url):
+                media_files['images'].append(img_url)
 
     # Extract videos
     for video_tag in soup.find_all('video'):
         video_url = video_tag.get('src')
         if video_url:
             video_url = urljoin(url, video_url)
-            media_files['videos'].append(video_url)
+            if is_valid_url(video_url):
+                media_files['videos'].append(video_url)
         # Also check for source tags within video tag
         for source_tag in video_tag.find_all('source'):
             video_url = source_tag.get('src')
             if video_url:
                 video_url = urljoin(url, video_url)
-                media_files['videos'].append(video_url)
+                if is_valid_url(video_url):
+                    media_files['videos'].append(video_url)
 
     # Extract audios
     for audio_tag in soup.find_all('audio'):
         audio_url = audio_tag.get('src')
         if audio_url:
             audio_url = urljoin(url, audio_url)
-            media_files['audios'].append(audio_url)
+            if is_valid_url(audio_url):
+                media_files['audios'].append(audio_url)
         # Also check for source tags within audio tag
         for source_tag in audio_tag.find_all('source'):
             audio_url = source_tag.get('src')
             if audio_url:
                 audio_url = urljoin(url, audio_url)
-                media_files['audios'].append(audio_url)
+                if is_valid_url(audio_url):
+                    media_files['audios'].append(audio_url)
 
     # Extract external links
     for a_tag in soup.find_all('a', href=True):
@@ -99,8 +108,9 @@ def download_media(media_files, base_directory, media_types, logger):
             create_directory(media_directory)
             for url in media_files[media_type]:
                 if media_type != 'external_links':  # Only download if it's not an external link
-                    logger.info(f"Downloading {url}")
-                    download_file(url, media_directory, logger)
+                    if is_valid_url(url):
+                        logger.info(f"Downloading {url}")
+                        download_file(url, media_directory, logger)
                 else:
                     logger.info(f"Found external link: {url}")
 
