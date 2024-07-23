@@ -106,13 +106,18 @@ def download_media(media_files, base_directory, media_types, logger):
         if media_type in media_files:
             media_directory = os.path.join(base_directory, media_type)
             create_directory(media_directory)
-            for url in media_files[media_type]:
-                if media_type != 'external_links':  # Only download if it's not an external link
+            if media_type == 'external_links':
+                # Save external links to links.txt
+                links_file = os.path.join(media_directory, 'links.txt')
+                with open(links_file, 'w') as file:
+                    for url in media_files[media_type]:
+                        file.write(url + '\n')
+                logger.info(f"External links saved to {links_file}")
+            else:
+                for url in media_files[media_type]:
                     if is_valid_url(url):
                         logger.info(f"Downloading {url}")
                         download_file(url, media_directory, logger)
-                else:
-                    logger.info(f"Found external link: {url}")
 
 if __name__ == "__main__":
     url = input("Enter the URL of the webpage to scan: ")
@@ -141,8 +146,5 @@ if __name__ == "__main__":
     download_media(media_files, base_directory, media_types, logger)
     
     logger.info("Processing complete. Media files have been processed.")
-    logger.info("External links found:")
-    for link in media_files['external_links']:
-        logger.info(link)
     
     print(f"Processing complete. Log file saved as {log_filename}.")
