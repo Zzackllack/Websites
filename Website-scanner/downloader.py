@@ -20,6 +20,10 @@ def is_valid_url(url):
     parsed = urlparse(url)
     return bool(parsed.scheme in ('http', 'https') and parsed.netloc)
 
+def is_valid_directory(directory):
+    # Überprüft, ob der Pfad gültig ist
+    return os.path.isdir(directory) or not os.path.exists(directory)
+
 def download_file(url, directory, logger, progress_bar):
     local_filename = sanitize_filename(url.split('/')[-1])
     full_path = os.path.join(directory, local_filename)
@@ -160,7 +164,12 @@ if __name__ == "__main__":
         else:
             print("Invalid URL. Please enter a valid URL starting with http:// or https://")
 
-    base_directory = input("Enter the directory to save the downloaded media: ")
+    while True:
+        base_directory = input("Enter the directory to save the downloaded media: ")
+        if is_valid_directory(base_directory):
+            break
+        else:
+            print("Invalid directory path. Please enter a valid path.")
 
     valid_media_types = {'images', 'videos', 'audios', 'documents', 'external_links', 'all'}
     
