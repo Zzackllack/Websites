@@ -110,6 +110,16 @@ def extract_media_from_url(url):
 
     return media_files
 
+def collect_stats(media_files):
+    stats = {
+        'images': len(media_files['images']),
+        'videos': len(media_files['videos']),
+        'audios': len(media_files['audios']),
+        'documents': len(media_files['documents']),
+        'external_links': len(media_files['external_links'])
+    }
+    return stats
+
 def download_media(media_files, base_directory, media_types, logger):
     if "all" in media_types:
         media_types = list(media_files.keys())  # Download all media types
@@ -167,6 +177,12 @@ if __name__ == "__main__":
     logger = logging.getLogger()
 
     media_files = extract_media_from_url(url)
+    stats = collect_stats(media_files)
+    
+    logger.info("Statistics of the webpage:")
+    for key, value in stats.items():
+        logger.info(f"{key.capitalize()}: {value}")
+
     download_media(media_files, base_directory, media_types, logger)
     
     logger.info("Processing complete. Media files have been processed.")
