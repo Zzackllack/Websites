@@ -158,6 +158,8 @@ if __name__ == "__main__":
 
     create_directory(base_directory)
 
+    print("Please wait, the script might be unresponsive while processing...")
+
     # Configure logging
     sanitized_url = sanitize_filename(url.replace('https://', '').replace('http://', '').replace('/', '_'))
     log_filename = os.path.join(base_directory, f"log-{sanitized_url}.txt")
