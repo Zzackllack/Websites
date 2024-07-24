@@ -19,7 +19,7 @@ def is_valid_url(url):
     # Überprüft, ob die URL ein gültiges HTTP(S)-Schema hat
     return url.startswith('http://') or url.startswith('https://')
 
-def download_file(url, directory, logger):
+def download_file(url, directory, logger, progress_bar):
     local_filename = sanitize_filename(url.split('/')[-1])
     full_path = os.path.join(directory, local_filename)
     
@@ -32,10 +32,12 @@ def download_file(url, directory, logger):
         unit='iB',
         unit_scale=True,
         unit_divisor=1024,
+        leave=False,
     ) as bar:
         for data in response.iter_content(chunk_size=1024):
             size = file.write(data)
             bar.update(size)
+            progress_bar.update(size)
     
     logger.info(f"Downloaded {url} to {full_path}")
     return full_path
@@ -102,22 +104,32 @@ def download_media(media_files, base_directory, media_types, logger):
     if "all" in media_types:
         media_types = list(media_files.keys())  # Download all media types
 
+    # Calculate total size of all downloads for the progress bar
+    total_size = 0
     for media_type in media_types:
         if media_type in media_files:
-            media_directory = os.path.join(base_directory, media_type)
-            create_directory(media_directory)
-            if media_type == 'external_links':
-                # Save external links to links.txt
-                links_file = os.path.join(media_directory, 'links.txt')
-                with open(links_file, 'w') as file:
+            for url in media_files[media_type]:
+                if is_valid_url(url):
+                    response = requests.head(url)
+                    total_size += int(response.headers.get('content-length', 0))
+
+    with tqdm(total=total_size, unit='iB', unit_scale=True, unit_divisor=1024, desc="Total Progress") as progress_bar:
+        for media_type in media_types:
+            if media_type in media_files:
+                media_directory = os.path.join(base_directory, media_type)
+                create_directory(media_directory)
+                if media_type == 'external_links':
+                    # Save external links to links.txt
+                    links_file = os.path.join(media_directory, 'links.txt')
+                    with open(links_file, 'w') as file:
+                        for url in media_files[media_type]:
+                            file.write(url + '\n')
+                    logger.info(f"External links saved to {links_file}")
+                else:
                     for url in media_files[media_type]:
-                        file.write(url + '\n')
-                logger.info(f"External links saved to {links_file}")
-            else:
-                for url in media_files[media_type]:
-                    if is_valid_url(url):
-                        logger.info(f"Downloading {url}")
-                        download_file(url, media_directory, logger)
+                        if is_valid_url(url):
+                            logger.info(f"Downloading {url}")
+                            download_file(url, media_directory, logger, progress_bar)
 
 if __name__ == "__main__":
     url = input("Enter the URL of the webpage to scan: ")
