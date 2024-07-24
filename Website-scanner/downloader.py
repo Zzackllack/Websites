@@ -6,6 +6,8 @@ import logging
 from tqdm import tqdm
 import urllib.request
 import re
+import tkinter as tk
+from tkinter import messagebox, filedialog
 
 def create_directory(directory):
     if not os.path.exists(directory):
@@ -156,31 +158,31 @@ def download_media(media_files, base_directory, media_types, logger):
                             logger.info(f"Downloading {url}")
                             download_file(url, media_directory, logger, progress_bar)
 
-if __name__ == "__main__":
-    while True:
-        url = input("Enter the URL of the webpage to scan: ")
-        if is_valid_url(url):
-            break
-        else:
-            print("Invalid URL. Please enter a valid URL starting with http:// or https://")
+def on_browse_directory():
+    directory = filedialog.askdirectory()
+    if directory:
+        entry_directory.delete(0, tk.END)
+        entry_directory.insert(0, directory)
 
-    while True:
-        base_directory = input("Enter the directory to save the downloaded media: ")
-        if is_valid_directory(base_directory):
-            break
-        else:
-            print("Invalid directory path. Please enter a valid path.")
+def on_start():
+    url = entry_url.get()
+    base_directory = entry_directory.get()
+    media_types = entry_media_types.get().split(',')
 
+    media_types = [media_type.strip() for media_type in media_types]
     valid_media_types = {'images', 'videos', 'audios', 'documents', 'external_links', 'all'}
-    
-    while True:
-        media_types = input("Enter the types of media to download (options: images, videos, audios, documents, external_links, all, comma-separated): ").split(',')
-        media_types = [media_type.strip() for media_type in media_types]
-        
-        if all(media_type in valid_media_types for media_type in media_types):
-            break
-        else:
-            print(f"Invalid media types entered. Please enter valid options: {', '.join(valid_media_types)}")
+
+    if not is_valid_url(url):
+        messagebox.showerror("Invalid URL", "Please enter a valid URL starting with http:// or https://")
+        return
+
+    if not is_valid_directory(base_directory):
+        messagebox.showerror("Invalid Directory", "Please enter a valid directory path.")
+        return
+
+    if not all(media_type in valid_media_types for media_type in media_types):
+        messagebox.showerror("Invalid Media Types", f"Please enter valid media types: {', '.join(valid_media_types)}")
+        return
 
     create_directory(base_directory)
 
@@ -203,4 +205,30 @@ if __name__ == "__main__":
     
     logger.info("Processing complete. Media files have been processed.")
     
-    print(f"Processing complete. Log file saved as {log_filename}.")
+    messagebox.showinfo("Complete", f"Processing complete. Log file saved as {log_filename}.")
+
+# Create the main window
+root = tk.Tk()
+root.title("Media Downloader")
+
+# Create and place the URL entry field
+tk.Label(root, text="Enter the URL of the webpage to scan:").grid(row=0, column=0, padx=10, pady=5)
+entry_url = tk.Entry(root, width=50)
+entry_url.grid(row=0, column=1, padx=10, pady=5)
+
+# Create and place the directory entry field
+tk.Label(root, text="Enter the directory to save the downloaded media:").grid(row=1, column=0, padx=10, pady=5)
+entry_directory = tk.Entry(root, width=50)
+entry_directory.grid(row=1, column=1, padx=10, pady=5)
+tk.Button(root, text="Browse...", command=on_browse_directory).grid(row=1, column=2, padx=10, pady=5)
+
+# Create and place the media types entry field
+tk.Label(root, text="Enter the types of media to download (comma-separated):").grid(row=2, column=0, padx=10, pady=5)
+entry_media_types = tk.Entry(root, width=50)
+entry_media_types.grid(row=2, column=1, padx=10, pady=5)
+
+# Create and place the start button
+tk.Button(root, text="Start", command=on_start).grid(row=3, column=1, padx=10, pady=20)
+
+# Run the main event loop
+root.mainloop()
