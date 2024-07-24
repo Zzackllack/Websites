@@ -1,7 +1,7 @@
 import os
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 import logging
 from tqdm import tqdm
 import urllib.request
@@ -17,7 +17,8 @@ def sanitize_filename(filename):
 
 def is_valid_url(url):
     # Überprüft, ob die URL ein gültiges HTTP(S)-Schema hat
-    return url.startswith('http://') or url.startswith('https://')
+    parsed = urlparse(url)
+    return bool(parsed.scheme in ('http', 'https') and parsed.netloc)
 
 def download_file(url, directory, logger, progress_bar):
     local_filename = sanitize_filename(url.split('/')[-1])
@@ -152,7 +153,13 @@ def download_media(media_files, base_directory, media_types, logger):
                             download_file(url, media_directory, logger, progress_bar)
 
 if __name__ == "__main__":
-    url = input("Enter the URL of the webpage to scan: ")
+    while True:
+        url = input("Enter the URL of the webpage to scan: ")
+        if is_valid_url(url):
+            break
+        else:
+            print("Invalid URL. Please enter a valid URL starting with http:// or https://")
+
     base_directory = input("Enter the directory to save the downloaded media: ")
 
     valid_media_types = {'images', 'videos', 'audios', 'documents', 'external_links', 'all'}
