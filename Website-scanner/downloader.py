@@ -46,8 +46,15 @@ def extract_media_from_url(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
 
-    media_files = {'images': [], 'videos': [], 'audios': [], 'external_links': []}
+    media_files = {
+        'images': [],
+        'videos': [],
+        'audios': [],
+        'documents': [],
+        'external_links': []
+    }
     video_host_domains = ["voe.sx", "doodstream.com", "vidoza.net", "streamtape.com"]
+    document_extensions = ['pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'txt']
 
     # Extract images
     for img_tag in soup.find_all('img'):
@@ -87,13 +94,16 @@ def extract_media_from_url(url):
                 if is_valid_url(audio_url):
                     media_files['audios'].append(audio_url)
 
-    # Extract external links
+    # Extract documents
     for a_tag in soup.find_all('a', href=True):
         link_url = a_tag['href']
         if link_url.startswith('javascript:'):
             continue
         full_link_url = urljoin(url, link_url)
-        if any(domain in full_link_url for domain in video_host_domains):
+        file_extension = full_link_url.split('.')[-1].lower()
+        if file_extension in document_extensions and is_valid_url(full_link_url):
+            media_files['documents'].append(full_link_url)
+        elif any(domain in full_link_url for domain in video_host_domains):
             media_files['external_links'].append(full_link_url)
         else:
             media_files['external_links'].append(full_link_url)
@@ -135,10 +145,10 @@ if __name__ == "__main__":
     url = input("Enter the URL of the webpage to scan: ")
     base_directory = input("Enter the directory to save the downloaded media: ")
 
-    valid_media_types = {'images', 'videos', 'audios', 'external_links', 'all'}
+    valid_media_types = {'images', 'videos', 'audios', 'documents', 'external_links', 'all'}
     
     while True:
-        media_types = input("Enter the types of media to download (options: images, videos, audios, external_links, all, comma-separated): ").split(',')
+        media_types = input("Enter the types of media to download (options: images, videos, audios, documents, external_links, all, comma-separated): ").split(',')
         media_types = [media_type.strip() for media_type in media_types]
         
         if all(media_type in valid_media_types for media_type in media_types):
