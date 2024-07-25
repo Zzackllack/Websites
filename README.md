@@ -17,6 +17,7 @@ This repository contains various projects and tests related to web development, 
 - HTML
 - CSS
 - JavaScript
+- Python
 
 ## Getting Started
 To get a local copy up and running follow these simple steps.
