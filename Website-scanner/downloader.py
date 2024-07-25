@@ -115,6 +115,16 @@ def extract_media_from_url(url):
         else:
             media_files['external_links'].append(full_link_url)
 
+    # Extract hidden video links for Streamtape
+    for hidden_link_id in ['ideoolink', 'robotlink', 'botlink']:
+        hidden_link_tag = soup.find(id=hidden_link_id)
+        if hidden_link_tag and hidden_link_tag.text:
+            hidden_link_url = hidden_link_tag.text.strip()
+            if hidden_link_url.startswith('//'):
+                hidden_link_url = 'https:' + hidden_link_url
+            if is_valid_url(hidden_link_url):
+                media_files['videos'].append(hidden_link_url)
+
     return media_files
 
 def collect_stats(media_files):
