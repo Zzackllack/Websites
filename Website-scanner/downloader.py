@@ -242,7 +242,12 @@ else:
 
 # Create the main window
 root = tk.Tk()
-root.title("Media Downloader")
+root.title("Website-scanner by Zzackllack")
+
+# Set the icon for the window
+script_dir = os.path.dirname(os.path.abspath(__file__))
+icon_path = os.path.join(script_dir, 'icon.ico')
+root.iconbitmap(icon_path)
 
 # Configure the grid
 root.columnconfigure(1, weight=1)
