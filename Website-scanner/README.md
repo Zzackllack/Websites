@@ -12,7 +12,35 @@ Website-scanner is a Python tool designed to scan a webpage for various types of
 - User-friendly input validation for media types and directory paths
 - **MODERN UPDATE**: Graphical User Interface (GUI) for easier interaction
 
-## Requirements
+# Easy Way to Use
+
+The easiest way to use the Website-scanner on Windows is to run the provided `.exe` file. This allows you to use the program without needing to install Python or any additional dependencies.
+
+## Steps
+
+1. **Download the `downloader.exe` file** from the repository.
+
+2. **Run the `downloader.exe`**:
+   - Simply double-click the `downloader.exe` file.
+   - The application window will open with the title "Website-scanner by Zzackllack".
+
+3. **Using the Application**:
+   - Enter the URL of the webpage you want to scan.
+   - Choose the directory where you want to save the downloaded media files.
+   - Specify the types of media you want to download (images, videos, audios, documents, external_links, or all).
+   - Click the "Start" button to begin the scanning and downloading process.
+
+## Features of the `.exe` Version
+
+- **No Python Installation Required**: Run the program directly on Windows without installing Python or other libraries.
+- **User-Friendly GUI**: A graphical interface that makes it easy to input URLs, select directories, and choose media types.
+- **Custom Icon and Title**: The application runs with a custom icon and the title "Website-scanner by Zzackllack".
+- **Multilingual Support**: The program supports both English and German based on your system's language settings.
+
+This method is recommended for users who prefer a straightforward and hassle-free setup.
+****
+
+## Requirements for Python Version
 
 - Python 3.6+
 - The following Python libraries:
