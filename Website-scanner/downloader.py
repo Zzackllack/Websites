@@ -208,10 +208,11 @@ def process(url, base_directory, media_types):
     messagebox.showinfo(messages['complete_title'], f"{messages['complete_message']} {log_filename}.")
 
 # Detect system language
-lang, _ = locale.getdefaultlocale()
+locale.setlocale(locale.LC_ALL, '')
+lang = locale.getlocale()[0]
 
 # Define messages based on language
-if lang.startswith("de"):
+if lang and lang.startswith("de"):
     messages = {
         "invalid_url_title": "Ungültige URL",
         "invalid_url_message": "Bitte geben Sie eine gültige URL ein, die mit http:// oder https:// beginnt.",
