@@ -211,24 +211,28 @@ def on_start():
 root = tk.Tk()
 root.title("Media Downloader")
 
+# Configure the grid
+root.columnconfigure(1, weight=1)
+root.rowconfigure(3, weight=1)
+
 # Create and place the URL entry field
-tk.Label(root, text="Enter the URL of the webpage to scan:").grid(row=0, column=0, padx=10, pady=5)
-entry_url = tk.Entry(root, width=50)
-entry_url.grid(row=0, column=1, padx=10, pady=5)
+tk.Label(root, text="Enter the URL of the webpage to scan:").grid(row=0, column=0, padx=10, pady=5, sticky="e")
+entry_url = tk.Entry(root)
+entry_url.grid(row=0, column=1, padx=10, pady=5, sticky="ew")
 
 # Create and place the directory entry field
-tk.Label(root, text="Enter the directory to save the downloaded media:").grid(row=1, column=0, padx=10, pady=5)
-entry_directory = tk.Entry(root, width=50)
-entry_directory.grid(row=1, column=1, padx=10, pady=5)
-tk.Button(root, text="Browse...", command=on_browse_directory).grid(row=1, column=2, padx=10, pady=5)
+tk.Label(root, text="Enter the directory to save the downloaded media:").grid(row=1, column=0, padx=10, pady=5, sticky="e")
+entry_directory = tk.Entry(root)
+entry_directory.grid(row=1, column=1, padx=10, pady=5, sticky="ew")
+tk.Button(root, text="Browse...", command=on_browse_directory).grid(row=1, column=2, padx=10, pady=5, sticky="w")
 
 # Create and place the media types entry field
-tk.Label(root, text="Enter the types of media to download (comma-separated):").grid(row=2, column=0, padx=10, pady=5)
-entry_media_types = tk.Entry(root, width=50)
-entry_media_types.grid(row=2, column=1, padx=10, pady=5)
+tk.Label(root, text="Enter the types of media to download (comma-separated):").grid(row=2, column=0, padx=10, pady=5, sticky="e")
+entry_media_types = tk.Entry(root)
+entry_media_types.grid(row=2, column=1, padx=10, pady=5, sticky="ew")
 
 # Create and place the start button
-tk.Button(root, text="Start", command=on_start).grid(row=3, column=1, padx=10, pady=20)
+tk.Button(root, text="Start", command=on_start).grid(row=3, column=1, padx=10, pady=20, sticky="e")
 
 # Run the main event loop
 root.mainloop()
