@@ -226,6 +226,20 @@ if lang and lang.startswith("de"):
         "complete_title": "Fertig",
         "complete_message": "Verarbeitung abgeschlossen. Protokolldatei gespeichert als"
     }
+elif lang and lang.startswith("fr"):
+    messages = {
+        "invalid_url_title": "URL invalide",
+        "invalid_url_message": "Veuillez entrer une URL valide commençant par http:// ou https://",
+        "invalid_directory_title": "Répertoire invalide",
+        "invalid_directory_message": "Veuillez entrer un chemin de répertoire valide.",
+        "invalid_media_types_title": "Types de médias invalides",
+        "invalid_media_types_message": "Veuillez entrer des types de médias valides : images, vidéos, audios, documents, external_links, all",
+        "processing_message": "Pour les sites Web avec de nombreux/gros fichiers multimédias, le programme peut devenir non réactif. Veuillez patienter.",
+        "stats_message": "Statistiques de la page Web :",
+        "processing_complete_message": "Traitement terminé. Les fichiers multimédias ont été traités.",
+        "complete_title": "Terminé",
+        "complete_message": "Traitement terminé. Fichier journal enregistré sous"
+    }
 else:
     messages = {
         "invalid_url_title": "Invalid URL",
