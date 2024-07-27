@@ -14,7 +14,7 @@ Website-scanner is a Python tool designed to scan a webpage for various types of
 
 # Easy Way to Use
 
-The easiest way to use the Website-scanner on Windows is to run the provided `.exe` file. This allows you to use the program without needing to install Python or any additional dependencies.
+The easiest way to use the Website-scanner on Windows is to run the provided `.exe` file. This allows you to use the program without needing to install Python or any additional dependencies, but the `.exe` file may not be on the newest version.
 
 ## Steps
 
