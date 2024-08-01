@@ -7,7 +7,7 @@ This repository contains various projects and tests related to web development, 
 - **Discord/TOS:** Terms of Service for my Discord Bot.
 - **English Quiz:** A quiz application for English learners.
 - **School Project:** The first project related to school assignments.
-- **Test:** Repository for testing out new features.
+- **Test:** No explanation needed.
 - **index.html:** The main HTML file for the web project.
 - **Overview:** A side that provides a full overview of all my links.
 - **Chillicord Minecraft Server** A website that presents my own minecraft server
