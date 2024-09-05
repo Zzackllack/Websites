@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Seite nicht gefunden</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comfortaa', sans-serif;
+            background: linear-gradient(175deg, #ff416c, #ff2b2b);
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .error-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 48px;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .back-home {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #ffffff;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .back-home:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .emoji {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .contact-info a {
+            color: #ffcccb;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-home">← Zurück zur Startseite</a>
+    
+    <div class="error-container">
+        <div class="emoji">🙁</div>
+        <h1>404 - Seite nicht gefunden</h1>
+        <p>Die Seite, die du suchst, konnte nicht gefunden werden.</p>
+        <p>English: The page you are looking for could not be found.</p>
+
+        <div class="contact-info">
+            <p>📧 E-Mail: <a href="mailto:info@zacklack.de">info@zacklack.de</a></p>
+            <p>📧 Kontakt: <a href="mailto:contact@zacklack.de">contact@zacklack.de</a></p>
+            <p>📧 Dringende Anfragen: <a href="mailto:admin@zacklack.de">admin@zacklack.de</a></p>
+        </div>
+    </div>
+</body>
+</html>
