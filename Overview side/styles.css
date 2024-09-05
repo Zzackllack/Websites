@@ -31,7 +31,6 @@ body, html {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-
 .close-icon.show {
     display: block;
 }
@@ -185,7 +184,6 @@ footer {
     transition: opacity 0.3s ease; /* Keine Verzögerung beim Erscheinen */
 }
 
-
 .close-icon {
     position: absolute;
     top: 20px;
@@ -237,4 +235,30 @@ footer {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Subtiler Schatten für mehr Tiefe */
     backdrop-filter: blur(10px);  /* Unschärfe-Effekt für den Glas-Look */
     border: 1px solid rgba(255, 255, 255, 0.25); /* Leicht sichtbare Grenze */
+}
+
+.login-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.login-button {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.login-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+  text-shadow: 0 0 10px var(--white);
 }
