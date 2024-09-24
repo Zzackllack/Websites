@@ -80,6 +80,11 @@
             border-radius: 5px;
             font-size: 14px;
             overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
+        .card.large {
+            grid-column: span 3; /* Das letzte Grid-Element erstreckt sich über zwei Spalten */
         }
 
         footer {
@@ -108,6 +113,10 @@
 
             .card h2 {
                 font-size: 20px;
+            }
+
+            .card.large {
+                grid-column: span 1; /* In kleinen Bildschirmen nimmt es nur eine Spalte ein */
             }
         }
     </style>
@@ -169,7 +178,7 @@
                 <li>Teil des zukünftigen Internets.</li>
             </ul>
         </div>
-        <div class="card">
+        <div class="card large">
             <h2>Beispielcode: Zugriff auf einen Solid-Pod</h2>
             <p>Der folgende JavaScript-Code zeigt, wie eine Anwendung auf einen Solid-Pod zugreifen kann:</p>
             <pre>
