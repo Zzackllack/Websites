@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solid Projekt - Informationen</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comfortaa', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        header p {
+            font-size: 18px;
+            margin-top: 10px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            font-size: 24px;
+            margin-top: 0;
+            color: #ff4b2b;
+        }
+
+        .card p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 20px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer a {
+            color: #ff4b2b;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            .card h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Solid Projekt</h1>
+        <p>Solid ist eine Initiative zur Rückgewinnung der Datenkontrolle für Nutzer. Es ermöglicht Nutzern, ihre Daten in dezentralen „Pods“ zu speichern und nur nach Bedarf zu teilen.</p>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Was ist Solid?</h2>
+            <p>Solid ist eine Plattform, die Nutzern ermöglicht, ihre eigenen Daten in sogenannten „Pods“ zu speichern. Diese Pods sind persönliche Online-Datenspeicher, die volle Kontrolle über die Daten gewähren und bestimmen, wer Zugang dazu hat.</p>
+        </div>
+        <div class="card">
+            <h2>Vorteile von Solid</h2>
+            <p>Solid gibt den Nutzern die Hoheit über ihre Daten zurück. Sie entscheiden, wer ihre Informationen sehen, nutzen oder bearbeiten darf. Es unterstützt den Datenschutz und fördert die Datensicherheit.</p>
+        </div>
+        <div class="card">
+            <h2>Anwendungsbeispiele</h2>
+            <p>Solid kann in sozialen Netzwerken, Gesundheitsanwendungen und in der persönlichen Datenverwaltung eingesetzt werden. Nutzer können festlegen, welche Daten mit welchen Diensten geteilt werden sollen.</p>
+        </div>
+        <div class="card">
+            <h2>Ressourcen</h2>
+            <p>Offizielle Solid-Webseite, Entwicklerdokumentation und Community-Ressourcen bieten umfassende Informationen und Unterstützung für Nutzer und Entwickler, die das Solid-Ökosystem erkunden möchten.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Kontakt: <a href="mailto:info@zacklack.de">info@zacklack.de</a> | <a href="https://solidproject.org" target="_blank">Solid Projekt Webseite</a> | <a href="https://github.com/solid" target="_blank">GitHub Repository</a></p>
+    </footer>
+</body>
+</html>
