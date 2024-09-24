@@ -73,6 +73,15 @@
             margin-bottom: 8px;
         }
 
+        .card pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+
         footer {
             background-color: #333;
             color: white;
@@ -159,6 +168,46 @@
                 <li>Erhöhte Akzeptanz erwartet.</li>
                 <li>Teil des zukünftigen Internets.</li>
             </ul>
+        </div>
+        <div class="card">
+            <h2>Beispielcode: Zugriff auf einen Solid-Pod</h2>
+            <p>Der folgende JavaScript-Code zeigt, wie eine Anwendung auf einen Solid-Pod zugreifen kann:</p>
+            <pre>
+                <code>
+// Import der Solid-Client-Bibliothek
+import { getSolidDataset, getStringNoLocale, getThing } from "@inrupt/solid-client";
+import { Session } from "@inrupt/solid-client-authn-browser";
+
+// URL des Pods und der Ressource
+const podUrl = "https://example.pod.provider/user1/profile/card";
+const session = new Session();
+
+// Funktion zur Authentifizierung und zum Abrufen der Daten
+async function fetchData() {
+    try {
+        // Anmeldung
+        await session.login({
+            oidcIssuer: "https://provider.example",
+            clientName: "Meine Solid App",
+            redirectUrl: window.location.href,
+        });
+
+        // Daten abrufen
+        const dataset = await getSolidDataset(podUrl, { fetch: session.fetch });
+        const profile = getThing(dataset, `${podUrl}#me`);
+        const fullName = getStringNoLocale(profile, "http://xmlns.com/foaf/0.1/name");
+
+        console.log(`Name des Nutzers: ${fullName}`);
+    } catch (error) {
+        console.error("Fehler beim Abrufen der Daten:", error);
+    }
+}
+
+// Aufruf der Funktion
+fetchData();
+                </code>
+            </pre>
+            <p>Der Code verbindet sich mit einem Solid-Pod, authentifiziert sich über OIDC und ruft den Namen des Nutzers aus seinem Profil ab.</p>
         </div>
     </div>
 
