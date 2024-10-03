@@ -309,7 +309,7 @@ footer {
 
 .popup-content ul li a:hover {
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-  color: #1DB954;
+  color: #50a8ff;
 }
 
 .popup-overlay.active .popup-content {
