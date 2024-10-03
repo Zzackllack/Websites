@@ -43,6 +43,12 @@
             <a href="javascript:void(0)" onclick="openPopup()" ><img src="media/discord.gif" alt="Discord"></a>
             <a href="javascript:void(0)" onclick="openPopup()" class="username" style="color: #7289DA;">@zacklack</a>
         </div>
+        <div id="discordPopup" class="popup-overlay">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closePopup()">&times;</span>
+                <p>Es ist nicht möglich, direkt zu Discord-Freunden zu verlinken.</p>
+            </div>
+        </div>
         <div class="social-item glass-effect">
             <a href="https://www.youtube.com/@Zzacklack" target="_blank"><img src="media/youtube.gif" alt="YouTube"></a>
             <a href="https://www.youtube.com/@Zzacklack" target="_blank" class="username" style="color: #FF0000;">@Zzacklack</a>
@@ -60,19 +66,27 @@
             <a href="https://github.com/Zzackllack" target="_blank" class="username" style="color: #bbbaba;">@Zzackllack</a>
         </div>
         <div class="social-item glass-effect">
-            <a href="mailto:info@zacklack.de" target="_blank"><img src="media/github.gif" alt="GitHub"></a>
-            <a href="mailto:info@zacklack.de" target="_blank" class="username" style="color: #bbbaba;">@Zzackllack</a>
+            <a href="javascript:void(0)" onclick="openEmailPopup()" ><img src="media/mail.gif" alt="E-Mail"></a>
+            <a href="javascript:void(0)" onclick="openEmailPopup()" class="username" style="color: #bbbaba;">E-Mail</a>
+        </div>
+        <div id="emailPopup" class="popup-overlay">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closeEmailPopup()">&times;</span>
+                <p>Hier sind meine E-Mail-Adressen:</p>
+                <ul>
+                    <li>📧 Auskunft: info@zacklack.de</li>
+                    <li>📧 Persönlich: clk@zacklack.de</li>
+                    <li>📧 Allgemein: mail@zacklack.de</li>
+                    <li>📧 Kontakt: contact@zacklack.de</li>
+                    <li>📧 Administrator: admin@zacklack.de</li>
+                    <li>📧 Missbrauchsmeldungen: abuse@zacklack.de</li>
+                </ul>
+            </div>
         </div>
         <div class="login-button-container">
             <a href="https://privat.zacklack.de" class="login-button">Zum Login</a>
         </div>        
     </div>
-    <div id="discordPopup" class="popup-overlay">
-        <div class="popup-content">
-            <span class="close-btn" onclick="closePopup()">&times;</span>
-            <p>Es ist nicht möglich, direkt zu Discord-Freunden zu verlinken.</p>
-        </div>
-</div>
 
     <script src="script.js"></script>
 </body>
