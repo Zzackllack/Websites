@@ -27,3 +27,17 @@ function closePopup() {
     document.getElementById("discordPopup").style.display = "none";
   }, 300); // Warte bis die Animation beendet ist
 }
+
+function openEmailPopup() {
+  document.getElementById("emailPopup").style.display = "flex";
+  setTimeout(() => {
+      document.getElementById("emailPopup").classList.add("active");
+  }, 10);
+}
+
+function closeEmailPopup() {
+  document.getElementById("emailPopup").classList.remove("active");
+  setTimeout(() => {
+      document.getElementById("emailPopup").style.display = "none";
+  }, 300);
+}
