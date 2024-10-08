@@ -1,207 +1,109 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solid Projekt - Informationen</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Comfortaa', sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
-        header {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-        }
-
-        header p {
-            font-size: 18px;
-            margin-top: 10px;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .card h2 {
-            font-size: 24px;
-            margin-top: 0;
-            color: #ff4b2b;
-        }
-
-        .card ul {
-            list-style: disc;
-            margin-left: 20px;
-        }
-
-        .card ul li {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 8px;
-        }
-
-        .card pre {
-            background-color: #f0f0f0;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-            overflow-x: auto;
-            white-space: pre-wrap;
-        }
-
-        .card.large {
-            grid-column: span 3; /* Das letzte Grid-Element erstreckt sich über zwei Spalten */
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 10px;
-            margin-top: 20px;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        footer a {
-            color: #ff4b2b;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 28px;
-            }
-
-            .card h2 {
-                font-size: 20px;
-            }
-
-            .card.large {
-                grid-column: span 1; /* In kleinen Bildschirmen nimmt es nur eine Spalte ein */
-            }
-        }
-    </style>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header>
-        <h1>Solid Projekt</h1>
-        <p>Solid gibt Nutzern die volle Kontrolle über ihre Daten. Speichere Daten in „Pods“ und teile sie nur nach Bedarf.</p>
+      <h1>Solid Projekt</h1>
+      <p>
+        Solid gibt Nutzern die volle Kontrolle über ihre Daten. Speichere Daten
+        in „Pods“ und teile sie nur nach Bedarf.
+      </p>
     </header>
 
     <div class="container">
-        <div class="card">
-            <h2>Was ist Solid?</h2>
-            <ul>
-                <li>Dezentrale Plattform zur Datenspeicherung.</li>
-                <li>Daten werden in persönlichen „Pods“ gespeichert.</li>
-                <li>Nutzer kontrollieren, wer Zugang hat.</li>
-            </ul>
+      <div class="card">
+        <h2>Was ist Solid?</h2>
+        <ul>
+          <li>Dezentrale Plattform zur Datenspeicherung.</li>
+          <li>Daten werden in persönlichen „Pods“ gespeichert.</li>
+          <li>Nutzer kontrollieren, wer Zugang hat.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Vorteile von Solid</h2>
+        <ul>
+          <li>Volle Datenkontrolle.</li>
+          <li>Verbesserter Datenschutz.</li>
+          <li>Hohe Datensicherheit.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Anwendungsbeispiele</h2>
+        <ul>
+          <li>Soziale Netzwerke.</li>
+          <li>Gesundheitsanwendungen.</li>
+          <li>Persönliche Datenverwaltung.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Nachteile</h2>
+        <ul>
+          <li>Komplexe Einrichtung für Laien.</li>
+          <li>Begrenzte Unterstützung durch Apps und Dienste.</li>
+          <li>Erfordert technische Kenntnisse für volle Nutzung.</li>
+          <li>Abhängigkeit von Hosting-Anbietern für Pods.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Partner</h2>
+        <ul>
+          <li><strong>Inrupt</strong>: Förderung und Verbreitung.</li>
+          <li><strong>MIT</strong>: Forschung und Entwicklung.</li>
+          <li><strong>BBC</strong>: Datengetriebene Experimente.</li>
+          <li>
+            <strong>Redecentralize.org</strong>: Dezentralisierung von Daten.
+          </li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Zukunft von Solid</h2>
+        <ul>
+          <li>Transformiert das Internet.</li>
+          <li>Erhöhte Akzeptanz erwartet.</li>
+          <li>Teil des zukünftigen Internets.</li>
+        </ul>
+      </div>
+
+      <!-- Beispielcode-Bereich mit Sprachauswahl -->
+      <div class="card large">
+        <h2>Beispielcode: Zugriff auf einen Solid-Pod</h2>
+
+        <!-- Buttons zur Auswahl der Programmiersprache -->
+        <div class="button-container">
+          <button onclick="showCode('js')">JavaScript</button>
+          <button onclick="showCode('python')">Python</button>
+          <button onclick="showCode('php')">PHP</button>
+          <button onclick="showCode('go')">Go</button>
+          <button onclick="showCode('ruby')">Ruby</button>
         </div>
-        <div class="card">
-            <h2>Vorteile von Solid</h2>
-            <ul>
-                <li>Volle Datenkontrolle.</li>
-                <li>Verbesserter Datenschutz.</li>
-                <li>Hohe Datensicherheit.</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h2>Anwendungsbeispiele</h2>
-            <ul>
-                <li>Soziale Netzwerke.</li>
-                <li>Gesundheitsanwendungen.</li>
-                <li>Persönliche Datenverwaltung.</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h2>Nachteile</h2>
-            <ul>
-                <li>Komplexe Einrichtung für Laien.</li>
-                <li>Begrenzte Unterstützung durch Apps und Dienste.</li>
-                <li>Erfordert technische Kenntnisse für volle Nutzung.</li>
-                <li>Abhängigkeit von Hosting-Anbietern für Pods.</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h2>Partner</h2>
-            <ul>
-                <li><strong>Inrupt</strong>: Förderung und Verbreitung.</li>
-                <li><strong>MIT</strong>: Forschung und Entwicklung.</li>
-                <li><strong>BBC</strong>: Datengetriebene Experimente.</li>
-                <li><strong>Redecentralize.org</strong>: Dezentralisierung von Daten.</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h2>Zukunft von Solid</h2>
-            <ul>
-                <li>Transformiert das Internet.</li>
-                <li>Erhöhte Akzeptanz erwartet.</li>
-                <li>Teil des zukünftigen Internets.</li>
-            </ul>
-        </div>
-        <div class="card large">
-            <h2>Beispielcode: Zugriff auf einen Solid-Pod</h2>
-            <p>Der folgende JavaScript-Code zeigt, wie eine Anwendung auf einen Solid-Pod zugreifen kann:</p>
-            <pre>
+
+        <!-- JavaScript-Code -->
+        <pre id="code-js">
                 <code>
-// Import der Solid-Client-Bibliothek
-import { getSolidDataset, getStringNoLocale, getThing } from "@inrupt/solid-client";
+// Realistisches Beispiel: Zugriff auf einen Solid-Pod mit JavaScript
+import { getSolidDataset, getThing, getStringNoLocale } from "@inrupt/solid-client";
 import { Session } from "@inrupt/solid-client-authn-browser";
 
-// URL des Pods und der Ressource
 const podUrl = "https://example.pod.provider/user1/profile/card";
 const session = new Session();
 
-// Funktion zur Authentifizierung und zum Abrufen der Daten
 async function fetchData() {
     try {
-        // Anmeldung
         await session.login({
             oidcIssuer: "https://provider.example",
             clientName: "Meine Solid App",
             redirectUrl: window.location.href,
         });
 
-        // Daten abrufen
         const dataset = await getSolidDataset(podUrl, { fetch: session.fetch });
         const profile = getThing(dataset, `${podUrl}#me`);
         const fullName = getStringNoLocale(profile, "http://xmlns.com/foaf/0.1/name");
@@ -212,16 +114,151 @@ async function fetchData() {
     }
 }
 
-// Aufruf der Funktion
 fetchData();
                 </code>
             </pre>
-            <p>Der Code verbindet sich mit einem Solid-Pod, authentifiziert sich über OIDC und ruft den Namen des Nutzers aus seinem Profil ab.</p>
-        </div>
+
+        <!-- Python-Code -->
+        <pre id="code-python" class="hidden">
+                <code>
+# Realistisches Beispiel: Zugriff auf einen Solid-Pod mit Python
+import requests
+
+pod_url = "https://example.pod.provider/user1/profile/card"
+auth_token = "Bearer your-access-token"
+
+headers = {
+    "Authorization": auth_token
+}
+
+response = requests.get(pod_url, headers=headers)
+
+if response.status_code == 200:
+    print(f"Daten erfolgreich abgerufen: {response.text}")
+else:
+    print(f"Fehler beim Abrufen der Daten: {response.status_code}")
+                </code>
+            </pre>
+
+        <!-- PHP-Code -->
+        <pre id="code-php" class="hidden">
+                <code>
+<?php
+// Realistisches Beispiel: Zugriff auf einen Solid-Pod mit PHP
+
+$pod_url = "https://example.pod.provider/user1/profile/card";
+$auth_token = "Bearer your-access-token";
+
+$opts = [
+    "http" => [
+        "method" => "GET",
+        "header" => "Authorization: $auth_token"
+    ]
+];
+
+$context = stream_context_create($opts);
+$response = file_get_contents($pod_url, false, $context);
+
+if ($response !== false) {
+    echo "Daten erfolgreich abgerufen: $response";
+} else {
+    echo "Fehler beim Abrufen der Daten";
+}
+?>
+                </code>
+            </pre>
+
+        <!-- Go-Code -->
+        <pre id="code-go" class="hidden">
+                <code>
+// Realistisches Beispiel: Zugriff auf einen Solid-Pod mit Go
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "net/http"
+)
+
+const podURL = "https://example.pod.provider/user1/profile/card"
+
+func fetchData() {
+    req, _ := http.NewRequest("GET", podURL, nil)
+    req.Header.Add("Authorization", "Bearer your-access-token")
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+
+    if err != nil {
+        fmt.Println("Fehler beim Abrufen der Daten:", err)
+        return
+    }
+
+    defer resp.Body.Close()
+    body, _ := ioutil.ReadAll(resp.Body)
+
+    if resp.StatusCode == 200 {
+        fmt.Println("Daten erfolgreich abgerufen:", string(body))
+    } else {
+        fmt.Println("Fehler beim Abrufen der Daten:", resp.StatusCode)
+    }
+}
+
+func main() {
+    fetchData()
+}
+                </code>
+            </pre>
+
+        <!-- Ruby-Code -->
+        <pre id="code-ruby" class="hidden">
+                <code>
+# Realistisches Beispiel: Zugriff auf einen Solid-Pod mit Ruby
+require 'net/http'
+require 'uri'
+
+pod_url = "https://example.pod.provider/user1/profile/card"
+auth_token = "Bearer your-access-token"
+
+uri = URI.parse(pod_url)
+request = Net::HTTP::Get.new(uri)
+request["Authorization"] = auth_token
+
+response = Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
+    http.request(request)
+end
+
+if response.code.to_i == 200
+    puts "Daten erfolgreich abgerufen: #{response.body}"
+else
+    puts "Fehler beim Abrufen der Daten: #{response.code}"
+end
+                </code>
+            </pre>
+      </div>
     </div>
 
     <footer>
-        <p>Kontakt: <a href="mailto:info@zacklack.de">info@zacklack.de</a> | <a href="https://solidproject.org" target="_blank">Solid Projekt Webseite</a> | <a href="https://github.com/solid" target="_blank">GitHub Repository</a></p>
+      <p>
+        Kontakt: <a href="mailto:info@zacklack.de">info@zacklack.de</a> |
+        <a href="https://solidproject.org" target="_blank"
+          >Solid Projekt Webseite</a
+        >
+        |
+        <a href="https://github.com/solid" target="_blank">GitHub Repository</a>
+      </p>
     </footer>
-</body>
+
+    <script>
+      function showCode(language) {
+        document.getElementById("code-js").classList.add("hidden");
+        document.getElementById("code-python").classList.add("hidden");
+        document.getElementById("code-php").classList.add("hidden");
+        document.getElementById("code-go").classList.add("hidden");
+        document.getElementById("code-ruby").classList.add("hidden");
+
+        document.getElementById("code-" + language).classList.remove("hidden");
+      }
+    </script>
+  </body>
 </html>
