@@ -11,6 +11,7 @@ This repository contains various projects and tests related to web development, 
 - **Login:** Includes my login site, written in php
 - **Overview-side:** A side that provides a full overview of all my links, available under the link https://zacklack.de
 - **School Project:** The first project related to school assignments.
+- **Solid-Projekt Presentation Site:** A small but informative webpage about the "Solid" project
 - **Test:** No explanation needed.
 - **Website-scanner** a Python tool to scan a webpage for types of media files
 - **index.html:** A main file.
