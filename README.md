@@ -4,14 +4,14 @@
 This repository contains various projects and tests related to web development, maintained by Zacklack. It includes everything from school projects to experimental features.
 
 ### Projects Included:
+- **Chillicord Minecraft Server** A website that presents my own minecraft server
 - **Discord/TOS:** Terms of Service for my Discord Bot.
+- **Overview:** A side that provides a full overview of all my links.
 - **English Quiz:** A quiz application for English learners.
 - **School Project:** The first project related to school assignments.
 - **Test:** No explanation needed.
-- **index.html:** A main file.
-- **Overview:** A side that provides a full overview of all my links.
-- **Chillicord Minecraft Server** A website that presents my own minecraft server
 - **Website-scanner** a Python tool to scan a webpage for types of media files
+- **index.html:** A main file.
 
 ## Technologies Used
 - HTML
