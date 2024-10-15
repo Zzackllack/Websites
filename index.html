@@ -1,94 +1,57 @@
+<?php include('check_session.php'); ?>
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>503 - Dienst nicht verfügbar</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Comfortaa', sans-serif;
-            background: linear-gradient(175deg, #ff416c, #ff4b2b);
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zacklack Übersicht</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Ladebalken -->
+    <div id="progress"></div>
+    <div id="loader"></div>
 
-        .error-container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-        }
+    <!-- Theme-Switcher -->
+    <div id="theme-switcher" onclick="switchTheme()">🌗</div>
 
-        h1 {
-            font-size: 48px;
-            margin: 0;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-        }
+    <!-- Hauptbereich -->
+    <div class="container">
+      <h1>Willkommen auf meiner Webseite!</h1>
 
-        p {
-            font-size: 18px;
-            margin: 20px 0;
-        }
-
-        .back-home {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            color: #ffffff;
-            text-decoration: none;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        .back-home:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .emoji {
-            font-size: 80px;
-            margin-bottom: 20px;
-        }
-
-        .contact-info {
-            margin-top: 20px;
-            font-size: 16px;
-        }
-
-        .contact-info a {
-            color: #ffcccb;
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <a href="/" class="back-home">← Zurück zur Startseite</a>
-    
-    <div class="error-container">
-        <div class="emoji">ߚ缯div>
-        <h1>503 - Dienst nicht verfügbar</h1>
-        <p>Der Dienst ist derzeit nicht verfügbar. Bitte versuche es später erneut.</p>
-        <p>Es besteht die Möglichkeit, dass diese Website gerade konfiguriert wird.</p>
-        <p>English: The service is currently unavailable. Please try again later.</p>
-
-        <div class="contact-info">
-            <p>ߓ砅-Mail: <a href="mailto:info@zacklack.de">info@zacklack.de</a></p>
-            <p>ߓ砋ontakt: <a href="mailto:contact@zacklack.de">contact@zacklack.de</a></p>
-            <p>ߓ砄ringende Anfragen: <a href="mailto:admin@zacklack.de">admin@zacklack.de</a></p>
-        </div>
+      <!-- Projekt Links -->
+      <div class="cards">
+        <a href="quiz.php" class="card">
+          <h2>Englisch Quiz</h2>
+          <p>Teste dein Wissen im Englisch-Quiz!</p>
+        </a>
+        <a href="Nikolas/html/index.php" class="card">
+          <h2>Informatik Projekt</h2>
+          <p>Informatik-Projekt von Cédric und Nikolas.</p>
+        </a>
+        <a href="IFrame.php" class="card">
+          <h2>Iframe Experimente</h2>
+          <p>Erkunde interessante Iframe-Experimente.</p>
+        </a>
+        <a href="/Offizieller-Chillicord/index.php" class="card">
+          <h2>Chillicord Minecraft Server</h2>
+          <p>Offizieller Server des Chillicord-Projekts.</p>
+        </a>
+        <a href="/Ethik-Projekt/index.php" class="card">
+          <h2>Ethik Projekt</h2>
+          <p>Projekt über Lale Sokolov und Stefan Baretzki.</p>
+        </a>
+        <a href="/discord-bot-tos/index.php" class="card">
+          <h2>Discord Bot TOS</h2>
+          <p>Allgemeine Geschäftsbedingungen meines Discord-Bots.</p>
+        </a>
+      </div>
     </div>
-</body>
+
+    <script src="script.js"></script>
+  </body>
 </html>
