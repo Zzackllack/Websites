@@ -38,6 +38,9 @@
         gap: 20px;
         align-items: center;
         margin-bottom: 40px;
+        padding: 0 20px; /* Padding an den Seiten für Mobilgeräte */
+        width: 100%;
+        box-sizing: border-box;
       }
 
       a {
@@ -50,6 +53,9 @@
         font-weight: bold;
         transition: all 0.3s ease;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        max-width: 400px;
+        width: 100%; /* Links füllen den verfügbaren Platz */
+        box-sizing: border-box;
       }
 
       a:hover {
@@ -78,12 +84,28 @@
       }
 
       footer a {
-        color: #fff;
+        color: #3498db;
         text-decoration: underline;
+        font-style: italic;
       }
 
       footer a:hover {
-        color: #8e44ad;
+        color: #fff;
+      }
+
+      /* Mobile Optimierungen */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.2em; /* Kleinere Schriftgröße für mobile Geräte */
+        }
+
+        a {
+          font-size: 1em; /* Kleinere Schriftgröße für Links */
+        }
+
+        .link-container {
+          padding: 0 10px; /* Weniger Padding an den Seiten für schmalere Bildschirme */
+        }
       }
     </style>
   </head>
