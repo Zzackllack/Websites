@@ -1,6 +1,6 @@
 # Discord/TOS: Terms of Service for my Discord Bot
 
-Welcome to the Terms of Service (TOS) for my Discord Bot. This repository contains the TOS documentation for users interacting with my Discord Bot.
+Welcome to the Terms of Service (TOS) for my Discord Bot. This contains the TOS documentation for users interacting with my Discord Bot.
 
 ## Overview
 
@@ -20,5 +20,4 @@ This project is licensed under the same license as the Repo
 
 ## Contact
 
-For any questions or support, please contact me
----
+## For any questions or support, please contact me
