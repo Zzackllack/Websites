@@ -3,6 +3,7 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="6ac3974f-c908-4f8c-a726-ef8845e80677"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Übersichtsseite</title>
     <link
