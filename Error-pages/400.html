@@ -102,6 +102,20 @@
         .details p {
             margin: 10px 0;
         }
+
+        .debug-info {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .debug-info p {
+            margin: 10px 0;
+            color: #ffcccb;
+        }
     </style>
 </head>
 <body>
@@ -125,6 +139,11 @@
             <p>- Stellen Sie sicher, dass alle erforderlichen Parameter übergeben wurden.</p>
             <p>- Wenn das Problem weiterhin besteht, wenden Sie sich an den Support.</p>
         </div>
+
+        <div class="debug-info" id="debug-info">
+            <p>Debug Information:</p>
+            <p id="debug-data"></p>
+        </div>
     </div>
 
     <script>
@@ -137,6 +156,34 @@
                 details.style.maxHeight = "0px";
                 details.style.opacity = "0";
             }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.key === 'm') {
+                var debugInfo = document.getElementById("debug-info");
+                if (debugInfo.style.display === "none" || debugInfo.style.display === "") {
+                    debugInfo.style.display = "block";
+                    fetchDebugData();
+                } else {
+                    debugInfo.style.display = "none";
+                }
+            }
+        });
+
+        async function fetchDebugData() {
+            const response = await fetch('https://api.ipify.org?format=json');
+            const data = await response.json();
+            const userIp = data.ip;
+            const accessedIp = location.hostname;
+            const deviceInfo = navigator.platform;
+            const debugData = `
+                Error Code: 400
+                Timestamp: ${new Date().toISOString()}
+                User Agent: ${navigator.userAgent}
+                User IP: ${userIp}
+                Accessed IP: ${accessedIp}
+                Device: ${deviceInfo}`;
+            document.getElementById("debug-data").innerText = debugData;
         }
     </script>
 </body>
