@@ -25,6 +25,7 @@
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
+            position: relative;
         }
 
         h1 {
@@ -72,23 +73,193 @@
         .contact-info a:hover {
             text-decoration: underline;
         }
+
+        .help-icon {
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .help-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .details p {
+            margin: 10px 0;
+        }
+
+        .debug-info {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .debug-info p {
+            margin: 10px 0;
+            color: #ffcccb;
+        }
+
+        .debug-tools {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .debug-tools button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .debug-tools button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .debug-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .debug-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .question-icon {
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            left: 35px;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .question-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
     </style>
 </head>
 <body>
-    <a href="/" class="back-home">← Zurück zur Startseite</a>
+    <a href="https://zacklack.de" class="back-home">← Zurück zur Startseite</a>
     
     <div class="error-container">
         <div class="emoji">🚧</div>
         <h1>503 - Dienst nicht verfügbar</h1>
         <p>Der Dienst ist derzeit nicht verfügbar. Bitte versuche es später erneut.</p>
-        <p>Es besteht die Möglichkeit, dass diese Website gerade konfiguriert wird.</p>
-        <p>English: The service is currently unavailable. Please try again later.</p>
+        <p>The service is currently unavailable. Please try again later.</p>
 
         <div class="contact-info">
-            <p>📧 E-Mail: <a href="mailto:info@zacklack.de">info@zacklack.de</a></p>
-            <p>📧 Kontakt: <a href="mailto:contact@zacklack.de">contact@zacklack.de</a></p>
-            <p>📧 Dringende Anfragen: <a href="mailto:admin@zacklack.de">admin@zacklack.de</a></p>
+            <p>📧 Support: <a href="mailto:contact@zacklack.de">contact@zacklack.de</a></p>
+            <p>📧 Urgent: <a href="mailto:admin@zacklack.de">admin@zacklack.de</a></p>
         </div>
+
+        <div class="help-icon" onclick="toggleDetails()">ℹ️</div>
+        <div class="details" id="details">
+            <p>Der HTTP-Statuscode 503 bedeutet, dass der Dienst vorübergehend nicht verfügbar ist. Dies kann verschiedene Gründe haben:</p>
+            <p>- Der Server ist überlastet oder wird gewartet.</p>
+            <p>- Die Website wird gerade konfiguriert oder aktualisiert.</p>
+            <p>- Um dieses Problem zu beheben, versuchen Sie es später erneut.</p>
+        </div>
+
+        <div class="debug-info" id="debug-info">
+            <p>Technische Details der Anfrage:</p>
+            <p id="debug-data"></p>
+            <div class="debug-tools">
+                <button onclick="copyDebugData()">Copy Debug Data</button>
+                <button onclick="sendDebugData()">Send Debug Data</button>
+            </div>
+        </div>
+
+        <button class="debug-button" onclick="toggleDebugInfo()">Debug Mode</button>
     </div>
+
+    <script>
+        function toggleDetails() {
+            var details = document.getElementById("details");
+            if (details.style.maxHeight === "0px" || details.style.maxHeight === "") {
+                details.style.maxHeight = details.scrollHeight + "px";
+                details.style.opacity = "1";
+            } else {
+                details.style.maxHeight = "0px";
+                details.style.opacity = "0";
+            }
+        }
+
+        function toggleDebugInfo() {
+            var debugInfo = document.getElementById("debug-info");
+            if (debugInfo.style.display === "none" || debugInfo.style.display === "") {
+                debugInfo.style.display = "block";
+                fetchDebugData();
+            } else {
+                debugInfo.style.display = "none";
+            }
+        }
+
+        async function fetchDebugData() {
+            const response = await fetch('https://api.ipify.org?format=json');
+            const data = await response.json();
+            const userIp = data.ip;
+            const accessedIp = location.hostname;
+            const deviceInfo = navigator.platform;
+            const debugData = `
+                Error Code: 503
+                Timestamp: ${new Date().toISOString()}
+                User Agent: ${navigator.userAgent}
+                User IP: ${userIp}
+                Accessed IP: ${accessedIp}
+                Device: ${deviceInfo}
+                HTTP Method: ${document.location.protocol}
+                Headers: ${JSON.stringify([...new Headers(document.headers)])}
+                Session ID: ${document.cookie}
+            `;
+            document.getElementById("debug-data").innerText = debugData;
+        }
+
+        function copyDebugData() {
+            const debugData = document.getElementById("debug-data").innerText;
+            navigator.clipboard.writeText(debugData).then(() => {
+                alert("Debug data copied to clipboard!");
+            });
+        }
+
+        function sendDebugData() {
+            const debugData = document.getElementById("debug-data").innerText;
+            const mailtoLink = `mailto:support@zacklack.de?subject=Debug%20Data&body=${encodeURIComponent(debugData)}`;
+            window.location.href = mailtoLink;
+        }
+    </script>
 </body>
 </html>
