@@ -25,6 +25,7 @@
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
+            position: relative;
         }
 
         h1 {
@@ -72,22 +73,71 @@
         .contact-info a:hover {
             text-decoration: underline;
         }
+
+        .help-icon {
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .help-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .details p {
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
-    <a href="/" class="back-home">← Zurück zur Startseite</a>
+    <a href="https://zacklack.de" class="back-home">← Zurück zur Startseite</a>
     
     <div class="error-container">
         <div class="emoji">❓</div>
         <h1>400 - Ungültige Anfrage</h1>
         <p>Die Anfrage war ungültig oder konnte nicht verarbeitet werden.</p>
-        <p>English: The request was invalid or could not be processed.</p>
+        <p>The request was invalid or could not be processed.</p>
 
         <div class="contact-info">
-            <p>📧 E-Mail: <a href="mailto:info@zacklack.de">info@zacklack.de</a></p>
-            <p>📧 Kontakt: <a href="mailto:contact@zacklack.de">contact@zacklack.de</a></p>
-            <p>📧 Dringende Anfragen: <a href="mailto:admin@zacklack.de">admin@zacklack.de</a></p>
+            <p>📧 Support: <a href="mailto:contact@zacklack.de">contact@zacklack.de</a></p>
+            <p>📧 Urgent: <a href="mailto:admin@zacklack.de">admin@zacklack.de</a></p>
+        </div>
+
+        <div class="help-icon" onclick="toggleDetails()">ℹ️</div>
+        <div class="details" id="details">
+            <p>Details zur Anfrage:</p>
+            <p>- Überprüfen Sie die URL auf Tippfehler.</p>
+            <p>- Stellen Sie sicher, dass alle erforderlichen Parameter übergeben wurden.</p>
+            <p>- Wenn das Problem weiterhin besteht, wenden Sie sich an den Support.</p>
         </div>
     </div>
+
+    <script>
+        function toggleDetails() {
+            var details = document.getElementById("details");
+            if (details.style.maxHeight === "0px" || details.style.maxHeight === "") {
+                details.style.maxHeight = details.scrollHeight + "px";
+                details.style.opacity = "1";
+            } else {
+                details.style.maxHeight = "0px";
+                details.style.opacity = "0";
+            }
+        }
+    </script>
 </body>
 </html>
