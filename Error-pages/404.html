@@ -179,7 +179,7 @@
         <div class="emoji">🔍</div>
         <h1>404 - Seite nicht gefunden</h1>
         <p>Die Seite, die du suchst, konnte nicht gefunden werden.</p>
-        <p>English: The page you are looking for could not be found.</p>
+        <p>The page you are looking for could not be found.</p>
 
         <div class="contact-info">
             <p>📧 E-Mail: <a href="mailto:info@zacklack.de">info@zacklack.de</a></p>
@@ -206,7 +206,7 @@
 
         <button class="debug-button" onclick="toggleDebugInfo()">Debug Mode</button>
     </div>
-
+    
     <script>
         function toggleDetails() {
             var details = document.getElementById("details");
@@ -218,7 +218,7 @@
                 details.style.opacity = "0";
             }
         }
-
+    
         function toggleDebugInfo() {
             var debugInfo = document.getElementById("debug-info");
             if (debugInfo.style.display === "none" || debugInfo.style.display === "") {
@@ -228,13 +228,20 @@
                 debugInfo.style.display = "none";
             }
         }
-
+    
         async function fetchDebugData() {
             const response = await fetch('https://api.ipify.org?format=json');
             const data = await response.json();
             const userIp = data.ip;
             const accessedIp = location.hostname;
             const deviceInfo = navigator.platform;
+            const referrer = document.referrer;
+            const screenResolution = `${window.screen.width}x${window.screen.height}`;
+            const browserLanguage = navigator.language;
+            const cookiesEnabled = navigator.cookieEnabled;
+            const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            const networkInfo = connection ? `${connection.effectiveType} (${connection.type})` : 'N/A';
+    
             const debugData = `
                 Error Code: 404
                 Timestamp: ${new Date().toISOString()}
@@ -245,17 +252,22 @@
                 HTTP Method: ${document.location.protocol}
                 Headers: ${JSON.stringify([...new Headers(document.headers)])}
                 Session ID: ${document.cookie}
+                Referrer: ${referrer}
+                Screen Resolution: ${screenResolution}
+                Browser Language: ${browserLanguage}
+                Cookies Enabled: ${cookiesEnabled}
+                Network Info: ${networkInfo}
             `;
             document.getElementById("debug-data").innerText = debugData;
         }
-
+    
         function copyDebugData() {
             const debugData = document.getElementById("debug-data").innerText;
             navigator.clipboard.writeText(debugData).then(() => {
                 alert("Debug data copied to clipboard!");
             });
         }
-
+    
         function sendDebugData() {
             const debugData = document.getElementById("debug-data").innerText;
             const mailtoLink = `mailto:support@zacklack.de?subject=Debug%20Data&body=${encodeURIComponent(debugData)}`;
