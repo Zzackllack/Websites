@@ -55,7 +55,7 @@ This method is recommended for users who prefer a straightforward and hassle-fre
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/website-scanner.git
+   git clone https://github.com/zzackllack/website-scanner.git
    cd website-scanner
    ```
 
